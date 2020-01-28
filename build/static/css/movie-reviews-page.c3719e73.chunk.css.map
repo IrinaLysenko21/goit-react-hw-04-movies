@@ -1,1 +1,0 @@
-{"version":3,"sources":["MovieReviewsPage.module.css"],"names":[],"mappings":"AAAA,qCACE,SAAU,CACV,eACF","file":"movie-reviews-page.c3719e73.chunk.css","sourcesContent":[".reviewsList {\n  padding: 0;\n  list-style: none;\n}\n"]}
