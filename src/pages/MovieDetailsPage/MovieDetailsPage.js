@@ -66,12 +66,18 @@ class MovieDetailsPage extends Component {
       return moviesAPI
         .getMovieById(id)
         .then(({ data }) => this.setState({ movie: createMovieObject(data) }))
-        .then(this.setState({ prevLocation: location.state.from }));
+        .then(this.setState({ prevLocation: location.state.from }))
+        .catch(err => {
+          throw new Error(err);
+        });
     }
 
     return moviesAPI
       .getMovieById(id)
-      .then(({ data }) => this.setState({ movie: createMovieObject(data) }));
+      .then(({ data }) => this.setState({ movie: createMovieObject(data) }))
+      .catch(err => {
+        throw new Error(err);
+      });
   }
 
   onGoBack = () => {

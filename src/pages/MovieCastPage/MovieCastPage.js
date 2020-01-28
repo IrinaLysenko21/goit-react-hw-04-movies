@@ -32,28 +32,37 @@ class MovieCastPage extends Component {
 
     moviesAPI
       .getMovieCredits(match.params.movieID)
-      .then(({ data }) => this.setState({ cast: mapper(data.cast) }));
+      .then(({ data }) => this.setState({ cast: mapper(data.cast) }))
+      .catch(err => {
+        throw new Error(err);
+      });
   }
 
   render() {
     const { cast } = this.state;
 
     return (
-      <ul className={styles.actorsList}>
-        {cast.map(actor => (
-          <li key={actor.id} className={styles.actorsListItem}>
-            <img
-              src={actor.image}
-              alt="Actor"
-              className={styles.actorPicture}
-            />
-            <div className={styles.actorInfo}>
-              <h3>{actor.name}</h3>
-              <p>{actor.character}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <>
+        {cast.length > 0 ? (
+          <ul className={styles.actorsList}>
+            {cast.map(actor => (
+              <li key={actor.id} className={styles.actorsListItem}>
+                <img
+                  src={actor.image}
+                  alt="Actor"
+                  className={styles.actorPicture}
+                />
+                <div className={styles.actorInfo}>
+                  <h3>{actor.name}</h3>
+                  <p>{actor.character}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className={styles.noCast}>No information provided.</p>
+        )}
+      </>
     );
   }
 }

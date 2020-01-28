@@ -1,6 +1,6 @@
 .actorsList {
   margin: 0;
-  padding: 30px;
+  padding: 15px 30px;
   list-style: none;
 }
 
@@ -16,4 +16,8 @@
 
 .actorInfo {
   padding: 0 15px;
+}
+
+.noCast {
+  padding-left: 30px;
 }

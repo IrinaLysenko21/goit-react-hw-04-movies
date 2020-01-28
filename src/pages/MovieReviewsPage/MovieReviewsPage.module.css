@@ -1,4 +1,9 @@
 .reviewsList {
-  padding: 0;
+  margin: 0;
+  padding: 0 30px;
   list-style: none;
+}
+
+.noReviews {
+  padding-left: 30px;
 }

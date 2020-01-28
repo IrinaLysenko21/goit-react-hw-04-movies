@@ -21,7 +21,10 @@ class MovieReviewsPage extends Component {
 
     moviesAPI
       .getMovieReviews(match.params.movieID)
-      .then(({ data }) => this.setState({ reviews: data.results }));
+      .then(({ data }) => this.setState({ reviews: data.results }))
+      .catch(err => {
+        throw new Error(err);
+      });
   }
 
   render() {
@@ -39,7 +42,9 @@ class MovieReviewsPage extends Component {
             ))}
           </ul>
         ) : (
-          <p>We don't have any reviews for this movie.</p>
+          <p className={styles.noReviews}>
+            We don&#039;t have any reviews for this movie.
+          </p>
         )}
       </>
     );
